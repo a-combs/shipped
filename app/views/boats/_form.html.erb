@@ -1,0 +1,36 @@
+<%= form_for(boat,  html: { multipart: true }) do |f| %>
+<fieldset>
+  <% if boat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(boat.errors.count, "error") %> prohibited this boat from being saved:</h2>
+
+      <ul>
+      <% boat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :containers %>
+    <%= f.number_field :containers %>
+    <br>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <br>
+
+    <%= f.label :photo, "Upload Photo" %>
+    <%= f.file_field :photo %>
+    <br>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    
+</fieldset>  
+<% end %>

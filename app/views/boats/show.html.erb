@@ -1,0 +1,18 @@
+<% "Boats Available" %>
+
+<h1>Boats</h1>
+<h2> <%= @boat.name %> </h2>
+<h2> <%= @boat.containers %> </h2>
+<h2> <%= @boat.location %> </h2>
+<%= image_tag @boat.photo.url, size: '1000x1000' %>
+
+
+<% @boat.jobs.each do |job| %>
+    <p><%= link_to job.name, job_path(job) %></p>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Back', boats_path %>
